@@ -4,7 +4,7 @@ def convert(temp, measure)
   return "Temperature must be an integer" unless temp.class == Fixnum
   return "Temperature below Absolute Zero" if below_absolute_zero?(temp,measure) == true
   if measure == "F"
-    5 * (temp - 32)/9
+    temp.to_s + " " + measure.to_s + " => " + (5 * (temp - 32)/9).to_s + " C"
   else
     9 * (temp)/5 + 32
   end
@@ -15,13 +15,16 @@ def below_absolute_zero?(temp,measure)
 end
 
 # Fahrenheit conversions to Celsius
+puts "==Fahrenheit conversions to Celsius=="
 puts convert(32,"F")
 puts convert(50,"F")
 puts convert("zero","F")
 puts convert(212,"F")
 puts convert(-500,"F") 
+puts "\n"
 
 # Celsius conversions to Fahrenheit
+puts "==Celsius conversions to Fahrenheit=="
 puts convert(0,"C")
 puts convert(10,"C")
 puts convert(100,"C")
